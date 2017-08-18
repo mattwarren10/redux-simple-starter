@@ -15,17 +15,18 @@ class App extends Component {
       videos: [],
       selectedVideo: null
     };
-
-    this.videoSearch("surfboards");
+ 
+    this.videoSearch("john crowder");
   }
 
   videoSearch(term) {
     YTSearch({ key: API_KEY, term: term }, videos => {
       this.setState({
         videos: videos,
-        selectedVideo: videos[0]
+        selectedVideo: videos[0]        
       });
-    });
+      console.log(videos[0]) // remove this
+    });    
   }
 
   render() {
