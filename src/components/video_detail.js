@@ -1,4 +1,5 @@
 import React from "react";
+import { FormattedDate } from 'react-intl';
 
 const VideoDetail = ({ video }) => {
   if (!video) {
@@ -16,7 +17,13 @@ const VideoDetail = ({ video }) => {
       <div className="details">
         <div className="title">{video.snippet.title}</div>
         <div className="description">{video.snippet.description}</div>
-        <div className="published-at">{video.snippet.publishedAt}</div>
+        <div className="published-at">
+          <FormattedDate
+            value={new Date(video.snippet.publishedAt)}
+            day="numeric"
+            month="long"
+            year="numeric" />
+        </div>
       </div>
     </div>
   );
