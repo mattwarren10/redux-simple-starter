@@ -5,6 +5,7 @@ import YTSearch from "youtube-api-search";
 import SearchBar from "./components/search_bar";
 import VideoList from "./components/video_list";
 import VideoDetail from "./components/video_detail";
+import Footer from "./components/footer"
 const API_KEY = "AIzaSyAuQCVeNfKhtRk9KlChQPT1nO27DPO_5Ss";
 
 class App extends Component {
@@ -34,13 +35,16 @@ class App extends Component {
     }, 300);
 
     return (
-      <div>
+      <div className="container">        
         <SearchBar onSearchTermChange={videoSearch} />
-        <VideoDetail video={this.state.selectedVideo} />
-        <VideoList
+        <div className="row">
+          <VideoDetail video={this.state.selectedVideo} />
+          <VideoList
           onVideoSelect={selectedVideo => this.setState({ selectedVideo })}
           videos={this.state.videos}
-        />
+          />
+        </div>        
+        <Footer />
       </div>
     );
   }
