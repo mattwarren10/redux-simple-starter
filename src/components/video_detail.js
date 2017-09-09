@@ -1,9 +1,14 @@
 import React from "react";
 import { FormattedDate } from 'react-intl';
+import LoadingIcon from "./loading_icon"
 
 const VideoDetail = ({ video }) => {
   if (!video) {
-    return <div>Loading...</div>;
+    return (
+      <div id="loading-icon">
+        <LoadingIcon />
+      </div>
+    )
   }
 
   const videoId = video.id.videoId;
