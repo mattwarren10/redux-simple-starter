@@ -18,10 +18,11 @@ class App extends Component {
 
     this.state = {
       videos: [],
-      selectedVideo: null
+      selectedVideo: null,
+      coldplay: "something just like this"
     };
  
-    this.videoSearch("something just like this");
+    this.videoSearch(this.state.coldplay);
   }
 
   videoSearch(term) {
@@ -30,7 +31,6 @@ class App extends Component {
         videos: videos,
         selectedVideo: videos[0]        
       });
-      console.log(videos.length) // remove this
     });    
   }
 
