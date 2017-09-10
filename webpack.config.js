@@ -1,10 +1,22 @@
+const path = require('path');
+const webpack = require('webpack');
+
 module.exports = {
+  devtool: 'source-map',
   entry: ["./src/index.js"],
   output: {
     path: __dirname,
     publicPath: "/",
     filename: "bundle.js"
   },
+  plugins: [
+    new webpack.optimize.UglifyJsPlugin({
+      minimize: true,
+      compress: {
+        warnings: false
+      }
+    })
+  ],
   module: {
     loaders: [
       {        
@@ -12,7 +24,7 @@ module.exports = {
         test: /\.js$/,
         loader: 'babel-loader',
         query: {
-          presets: ['es2015']
+          presets: ['es2015', 'react']
         }
       }
     ],
