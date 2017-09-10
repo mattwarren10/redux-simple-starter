@@ -1,3 +1,4 @@
+
 import _ from "lodash";
 import React, { Component } from "react";
 import ReactDOM from "react-dom";
@@ -54,8 +55,9 @@ class App extends Component {
     );
   }
 }
-
-ReactDOM.render(
-  <IntlProvider locale="en">
-    <App />
-  </IntlProvider>, document.querySelector(".container"));
+if(typeof window !== 'undefined') {
+  ReactDOM.render(
+    <IntlProvider locale="en">
+      <App />
+    </IntlProvider>, document.querySelector(".container"));
+}

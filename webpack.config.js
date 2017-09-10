@@ -7,9 +7,13 @@ module.exports = {
   },
   module: {
     loaders: [
-      {
+      {        
         exclude: /node_modules/,
-        loader: "babel"
+        test: /\.js$/,
+        loader: 'babel-loader',
+        query: {
+          presets: ['es2015']
+        }
       }
     ],
     rules: [{
