@@ -5,9 +5,9 @@
   "main": "index.js",
   "repository": "git@github.com:mattwarren10/youtube-instant-search.git",
   "scripts": {
-    "build": "babel src -d ./build",
+    "build": "babel -d ./build ./server",
     "prebuild": "rm -rf build/*",
-    "start": "node ./node_modules/webpack-dev-server/bin/webpack-dev-server.js",
+    "start": "NODE_ENV=production node ./build/index.js",
     "prestart": "npm build"
   },
   "author": "",
