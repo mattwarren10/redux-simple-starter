@@ -112,8 +112,10 @@ var App = function (_Component) {
   return App;
 }(_react.Component);
 
-_reactDom2.default.render(_react2.default.createElement(
-  _reactIntl.IntlProvider,
-  { locale: "en" },
-  _react2.default.createElement(App, null)
-), document.querySelector(".container"));
+if (typeof window !== 'undefined') {
+  _reactDom2.default.render(_react2.default.createElement(
+    _reactIntl.IntlProvider,
+    { locale: "en" },
+    _react2.default.createElement(App, null)
+  ), document.querySelector(".container"));
+}
